@@ -1,0 +1,48 @@
+﻿@using BlazingOrchard.OrchardCore.Client.Options
+@using Microsoft.Extensions.Options
+@inherits ShapeTemplate
+@attribute [Shape("Content__Article")]
+@inject IOptions<OrchardApiClientOptions> OrchardOptions
+
+
+
+
+
+
+
+
+
+<header>
+    <!-- Navbar -->
+    <!-- Background image -->
+    <div id="intro-example" class="p-5 text-center bg-image"
+         style="
+      background-image: url('@MediaUrl((string)Model.ContentItem.Content.Article.Image.Paths.First)');
+
+    ">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div style="color: white !important;">
+                    <h1 style="color: white !important;" class="mb-3">@Model.ContentItem.DisplayText</h1>
+                    <h4 style="color: white !important;" class="mb-3">@Model.ContentItem.Content.Article.Subtitle.Text</h4>
+                    <a style="color: white !important;" class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Background image -->
+</header>
+<section class="container">
+    @Html
+    <div>
+        <small>(This is a shape override for Content-Article)</small>
+    </div>
+</section>
+
+
+
+
+@code {
+    private MarkupString Html => (MarkupString)(string)Model.ContentItem.Content.HtmlBodyPart.Html;
+    private string MediaUrl(string fileName) => $"{OrchardOptions.Value.ServerUrl.ToString().TrimEnd('/')}/media/{fileName}";
+}
