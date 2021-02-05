@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc2-15771" />
-    <PackageReference Include="OrchardCore.Logging.NLog" Version="1.0.0-rc2-15771" />
+    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc2-15822" />
+    <PackageReference Include="OrchardCore.Logging.NLog" Version="1.0.0-rc2-15822" />
   </ItemGroup>
 
   <ItemGroup>
